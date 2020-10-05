@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/todo_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.todo_app.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_addTask"
+            app:destination="@id/addTask" />
+        <action
+            android:id="@+id/action_homeFragment_to_updateTask"
+            app:destination="@id/updateTask" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTask"
+        android:name="com.example.todo_app.addTask.AddTask"
+        android:label="fragment_add_task"
+        tools:layout="@layout/fragment_add_task" >
+        <action
+            android:id="@+id/action_addTask_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateTask"
+        android:name="com.example.todo_app.updateTask.UpdateTask"
+        android:label="fragment_update_task"
+        tools:layout="@layout/fragment_update_task" >
+        <action
+            android:id="@+id/action_updateTask_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="task"
+            app:argType="com.example.todo_app.entities.Task" />
+    </fragment>
+</navigation>
